@@ -65,21 +65,22 @@ public class AccessTokenInterface {
 		CloseableHttpClient httpclient = HttpClients.createDefault();
 		HttpGet httpGet = new HttpGet(tokenGetUrl);
 		CloseableHttpResponse response = httpclient.execute(httpGet);
-
-		String entityStr = "";
 		try {
 			HttpEntity entity = response.getEntity();
-			entityStr = EntityUtils.toString(entity, CHARSET);
-			JSONObject jsonObj = JSONObject.fromObject(entityStr);
-			token = (AccessToken) JSONObject.toBean(jsonObj, AccessToken.class);
-		} catch (RuntimeException e) {
-			logger.error(entityStr);
+			String entityStr = EntityUtils.toString(entity, CHARSET);
+
+			if (entityStr.contains("errcode")) {
+				logger.error("=============== " + entityStr + " ===============");
+			} else {
+				JSONObject jsonObj = JSONObject.fromObject(entityStr);
+				token = (AccessToken) JSONObject.toBean(jsonObj, AccessToken.class);
+			}
 		} finally {
 			if (response != null) {
 				response.close();
+				response = null;
 			}
 		}
-
 		return token;
 	}
 }
