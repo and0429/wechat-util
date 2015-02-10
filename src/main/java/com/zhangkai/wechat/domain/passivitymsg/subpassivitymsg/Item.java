@@ -29,6 +29,33 @@ public class Item {
 	 */
 	private String url;
 
+	/**
+	 * 构造器
+	 * 
+	 * @param title
+	 *            图文消息标题
+	 * @param description
+	 *            图文消息描述
+	 * @param picUrl
+	 *            图片链接，支持JPG、PNG格式，较好的效果为大图360*200，小图200*200
+	 * @param url
+	 *            点击图文消息跳转链接
+	 */
+	public Item(String title, String description, String picUrl, String url) {
+		super();
+		this.title = title;
+		this.description = description;
+		this.picUrl = picUrl;
+		this.url = url;
+	}
+
+	/**
+	 * 创建实例
+	 */
+	public Item() {
+		super();
+	}
+
 	@XmlElement(name = "Title")
 	public String getTitle() {
 		return title;
