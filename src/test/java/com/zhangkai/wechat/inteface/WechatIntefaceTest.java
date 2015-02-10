@@ -2,6 +2,7 @@ package com.zhangkai.wechat.inteface;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 import junit.framework.Assert;
@@ -18,7 +19,7 @@ public class WechatIntefaceTest {
 
 	private static String token;
 	private static Logger logger = Logger.getLogger(WechatIntefaceTest.class);
-	private static WechatInteface wif;
+	private static BaseInteface wif;
 
 	@BeforeClass
 	public static void before() throws IOException {
@@ -28,7 +29,7 @@ public class WechatIntefaceTest {
 
 		AccessTokenInterface inteface = new AccessTokenInterface(appid, secret);
 		token = inteface.getAccessToken().getAccess_token();
-		wif = new WechatInteface();
+		wif = new BaseInteface();
 	}
 
 	@Test
@@ -53,7 +54,8 @@ public class WechatIntefaceTest {
 	@Test
 	public void testUpload() throws IOException {
 
-		File file = new File("C:\\Users\\zhangkai\\Desktop\\Photo20150210000216.jpg");
+		URL url = this.getClass().getClassLoader().getResource("IMG_0015.PNG");
+		File file = new File(url.getFile());
 
 		UploadResult result = wif.upload(token, file, FileType.IMAGE);
 		
