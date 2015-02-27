@@ -11,7 +11,7 @@ import com.zhangkai.wechat.domain.passivitymsg.VoicePassivityMsg;
 import com.zhangkai.wechat.util.ObjectFormat;
 
 /**
- * 发送消息接口
+ * 被动相应接口
  * 
  * @author zhangkai
  * 
