@@ -29,7 +29,6 @@ public class ObjectFormatTest {
 
 		TextPassivityMsg obj = new TextPassivityMsg();
 		obj.setContent("content");
-		obj.setCreateTime("123456789");
 		obj.setFromUserName("<fromUserName>");
 		obj.setToUserName("toUserName");
 
@@ -44,7 +43,6 @@ public class ObjectFormatTest {
 
 		ImagePassivityMsg obj = new ImagePassivityMsg();
 
-		obj.setCreateTime("123456789");
 		obj.setFromUserName("<fromUserName>");
 		obj.setToUserName("toUserName");
 		Image image = new Image();
@@ -64,7 +62,6 @@ public class ObjectFormatTest {
 
 		VoicePassivityMsg obj = new VoicePassivityMsg();
 
-		obj.setCreateTime("123456789");
 		obj.setFromUserName("<fromUserName>");
 		obj.setToUserName("toUserName");
 		Voice voice = new Voice();
@@ -84,7 +81,6 @@ public class ObjectFormatTest {
 
 		VideoPassivityMsg obj = new VideoPassivityMsg();
 
-		obj.setCreateTime("123456789");
 		obj.setFromUserName("<fromUserName>");
 		obj.setToUserName("toUserName");
 
@@ -106,7 +102,6 @@ public class ObjectFormatTest {
 
 		MusicPassivityMsg obj = new MusicPassivityMsg();
 
-		obj.setCreateTime("123456789");
 		obj.setFromUserName("<fromUserName>");
 		obj.setToUserName("toUserName");
 
@@ -131,7 +126,6 @@ public class ObjectFormatTest {
 
 		ArticlesPassivityMsg obj = new ArticlesPassivityMsg();
 
-		obj.setCreateTime("123456789");
 		obj.setFromUserName("<fromUserName>");
 		obj.setToUserName("toUserName");
 

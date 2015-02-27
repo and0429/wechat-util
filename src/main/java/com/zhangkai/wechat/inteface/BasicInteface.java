@@ -27,10 +27,10 @@ import com.zhangkai.wechat.util.FileType;
  * @author zhangkai
  *
  */
-public class BaseInteface {
+public class BasicInteface {
 
 	public static final String CHARSET = "utf-8";
-	private static Logger logger = Logger.getLogger(BaseInteface.class);
+	private static Logger logger = Logger.getLogger(BasicInteface.class);
 
 	/**
 	 * 获取微信服务器Ip地址列表

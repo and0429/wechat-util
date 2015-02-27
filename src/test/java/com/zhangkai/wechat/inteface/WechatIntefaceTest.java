@@ -19,7 +19,7 @@ public class WechatIntefaceTest {
 
 	private static String token;
 	private static Logger logger = Logger.getLogger(WechatIntefaceTest.class);
-	private static BaseInteface wif;
+	private static BasicInteface wif;
 
 	@BeforeClass
 	public static void before() throws IOException {
@@ -29,7 +29,7 @@ public class WechatIntefaceTest {
 
 		AccessTokenInterface inteface = new AccessTokenInterface(appid, secret);
 		token = inteface.getAccessToken().getAccess_token();
-		wif = new BaseInteface();
+		wif = new BasicInteface();
 	}
 
 	@Test

@@ -30,7 +30,6 @@ public class PassivityMsgInterfaceTest {
 
 		TextPassivityMsg obj = new TextPassivityMsg();
 		obj.setContent("content");
-		obj.setCreateTime("123456789");
 		obj.setFromUserName("<fromUserName>");
 		obj.setToUserName("toUserName");
 
@@ -44,7 +43,6 @@ public class PassivityMsgInterfaceTest {
 	public void testPassivityMsg2xmlImagePassivityMsg() throws JAXBException {
 		ImagePassivityMsg obj = new ImagePassivityMsg();
 
-		obj.setCreateTime("123456789");
 		obj.setFromUserName("<fromUserName>");
 		obj.setToUserName("toUserName");
 		Image image = new Image();
@@ -62,7 +60,6 @@ public class PassivityMsgInterfaceTest {
 	public void testPassivityMsg2xmlVoicePassivityMsg() throws JAXBException {
 		VoicePassivityMsg obj = new VoicePassivityMsg();
 
-		obj.setCreateTime("123456789");
 		obj.setFromUserName("<fromUserName>");
 		obj.setToUserName("toUserName");
 		Voice voice = new Voice();
@@ -80,7 +77,6 @@ public class PassivityMsgInterfaceTest {
 	public void testPassivityMsg2xmlVideoPassivityMsg() throws JAXBException {
 		VideoPassivityMsg obj = new VideoPassivityMsg();
 
-		obj.setCreateTime("123456789");
 		obj.setFromUserName("<fromUserName>");
 		obj.setToUserName("toUserName");
 
@@ -91,7 +87,7 @@ public class PassivityMsgInterfaceTest {
 
 		obj.setVideo(video);
 
-		String result =  pm.passivityMsg2xml(obj);
+		String result = pm.passivityMsg2xml(obj);
 
 		logger.info("\n" + result);
 
@@ -102,7 +98,6 @@ public class PassivityMsgInterfaceTest {
 
 		MusicPassivityMsg obj = new MusicPassivityMsg();
 
-		obj.setCreateTime("123456789");
 		obj.setFromUserName("<fromUserName>");
 		obj.setToUserName("toUserName");
 
@@ -126,7 +121,6 @@ public class PassivityMsgInterfaceTest {
 	public void testPassivityMsg2xmlArticlesPassivityMsg() throws JAXBException {
 		ArticlesPassivityMsg obj = new ArticlesPassivityMsg();
 
-		obj.setCreateTime("123456789");
 		obj.setFromUserName("<fromUserName>");
 		obj.setToUserName("toUserName");
 

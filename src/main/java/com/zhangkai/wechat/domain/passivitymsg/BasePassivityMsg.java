@@ -1,5 +1,7 @@
 package com.zhangkai.wechat.domain.passivitymsg;
 
+import java.util.Date;
+
 import javax.xml.bind.annotation.XmlElement;
 
 /**
@@ -25,6 +27,11 @@ public abstract class BasePassivityMsg {
 	 */
 	private String createTime;
 
+	public BasePassivityMsg() {
+		super();
+		this.createTime = new Date().getTime() + "";
+	}
+
 	@XmlElement(name = "ToUserName")
 	public String getToUserName() {
 		return toUserName;
@@ -46,10 +53,6 @@ public abstract class BasePassivityMsg {
 	@XmlElement(name = "CreateTime")
 	public String getCreateTime() {
 		return createTime;
-	}
-
-	public void setCreateTime(String createTime) {
-		this.createTime = createTime;
 	}
 
 }
