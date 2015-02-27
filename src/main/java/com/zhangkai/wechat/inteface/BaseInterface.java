@@ -20,7 +20,7 @@ public abstract class BaseInterface {
 	 *            日志内容
 	 */
 	public void loggerformat(String content) {
-		logger.error("================== " + content + " ==================");
+		logger.info("================== " + content + " ==================");
 	}
 
 }
