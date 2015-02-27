@@ -14,7 +14,6 @@ import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import org.apache.log4j.Logger;
 
 import com.zhangkai.wechat.domain.UploadResult;
 import com.zhangkai.wechat.domain.WechatServiceIp;
@@ -27,10 +26,7 @@ import com.zhangkai.wechat.util.FileType;
  * @author zhangkai
  *
  */
-public class BasicInteface {
-
-	public static final String CHARSET = "utf-8";
-	private static Logger logger = Logger.getLogger(BasicInteface.class);
+public class BasicInteface extends BaseInterface {
 
 	/**
 	 * 获取微信服务器Ip地址列表
@@ -118,15 +114,5 @@ public class BasicInteface {
 
 		return uploadResult;
 
-	}
-
-	/**
-	 * 打印格式化后的日志
-	 * 
-	 * @param content
-	 *            日志内容
-	 */
-	private void loggerformat(String content) {
-		logger.error("================== " + content + " ==================");
 	}
 }

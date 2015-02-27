@@ -11,7 +11,6 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import org.apache.log4j.Logger;
 
 import com.zhangkai.wechat.domain.AccessToken;
 import com.zhangkai.wechat.util.Configuration;
@@ -22,10 +21,7 @@ import com.zhangkai.wechat.util.Configuration;
  * @author zhangkai
  * 
  */
-public class AccessTokenInterface {
-
-	private static Logger logger = Logger.getLogger(AccessTokenInterface.class);
-	public static final String CHARSET = "utf-8";
+public class AccessTokenInterface extends BaseInterface {
 
 	/**
 	 * 第三方用户唯一凭证
@@ -70,7 +66,7 @@ public class AccessTokenInterface {
 			String entityStr = EntityUtils.toString(entity, CHARSET);
 
 			if (entityStr.contains("errcode")) {
-				logger.error("=============== " + entityStr + " ===============");
+				loggerformat(entityStr);
 			} else {
 				JSONObject jsonObj = JSONObject.fromObject(entityStr);
 				token = (AccessToken) JSONObject.toBean(jsonObj, AccessToken.class);

@@ -16,9 +16,7 @@ import com.zhangkai.wechat.util.ObjectFormat;
  * @author zhangkai
  * 
  */
-public class PassivityMsgInterface {
-
-	public static final String CHARSET = "utf-8";
+public class PassivityMsgInterface extends BaseInterface{
 
 	/**
 	 * 将被动文本消息转换成xml格式的字符串
