@@ -16,7 +16,7 @@ import com.zhangkai.wechat.util.ObjectFormat;
  * @author zhangkai
  * 
  */
-public class SendMsgInterface {
+public class PassivityMsgInterface {
 
 	public static final String CHARSET = "utf-8";
 
