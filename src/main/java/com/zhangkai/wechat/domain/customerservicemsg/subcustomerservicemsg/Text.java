@@ -1,7 +1,7 @@
 package com.zhangkai.wechat.domain.customerservicemsg.subcustomerservicemsg;
 
 /**
- * 文本消息
+ * 客服-文本消息
  * 
  * @author zhangkai
  * 

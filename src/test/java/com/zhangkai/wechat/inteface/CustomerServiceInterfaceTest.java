@@ -45,4 +45,19 @@ public class CustomerServiceInterfaceTest {
 
 	}
 
+	@Test
+	public void testSendVideoCustomerServiceMsg() throws IOException {
+
+		String mediaId = "onGIIjjLV6pgyEHYGfCWa0Oryp0eGF8hz75YiLoYx7oIBp83ypOLSz3sTHuWACeK";
+		csi.sendVideoCustomerServiceMsg(token, touser, mediaId, mediaId, "标题", "描述");
+	}
+
+	
+	@Test
+	public void testSendMusicCustomerServiceMsg() throws IOException {
+
+		String mediaId = "onGIIjjLV6pgyEHYGfCWa0Oryp0eGF8hz75YiLoYx7oIBp83ypOLSz3sTHuWACeK";
+		csi.sendMusicCustomerServiceMsg(token, touser, "标题", "描述", "http://yinyueshiting.baidu.com/data2/music/137081688/137078183169200128.mp3?xcode=7c23b6a67eae038e611c81191b7921b10b86fc0e5b731aec", "http://yinyueshiting.baidu.com/data2/music/137081688/137078183169200128.mp3?xcode=7c23b6a67eae038e611c81191b7921b10b86fc0e5b731aec", mediaId);
+	}
+	
 }

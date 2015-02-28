@@ -41,7 +41,7 @@ public class AccessTokenInterface extends BaseInterface {
 	 * @param secret
 	 *            第三方用户唯一凭证密钥，即appsecret
 	 */
-	public AccessTokenInterface(String appid, String secret) {
+	public AccessTokenInterface(final String appid, final String secret) {
 		this.appid = appid;
 		this.secret = secret;
 	}

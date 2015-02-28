@@ -15,10 +15,14 @@ import org.apache.http.util.EntityUtils;
 
 import com.zhangkai.wechat.domain.customerservicemsg.BaseCustomerServiceMsg;
 import com.zhangkai.wechat.domain.customerservicemsg.ImageCustomerServiceMsg;
+import com.zhangkai.wechat.domain.customerservicemsg.MusicCustomerServiceMsg;
 import com.zhangkai.wechat.domain.customerservicemsg.TextCustomerServiceMsg;
+import com.zhangkai.wechat.domain.customerservicemsg.VideoCustomerServiceMsg;
 import com.zhangkai.wechat.domain.customerservicemsg.VoiceCustomerServiceMsg;
 import com.zhangkai.wechat.domain.customerservicemsg.subcustomerservicemsg.ImageAndVoice;
+import com.zhangkai.wechat.domain.customerservicemsg.subcustomerservicemsg.Music;
 import com.zhangkai.wechat.domain.customerservicemsg.subcustomerservicemsg.Text;
+import com.zhangkai.wechat.domain.customerservicemsg.subcustomerservicemsg.Video;
 import com.zhangkai.wechat.util.Configuration;
 
 /**
@@ -40,7 +44,7 @@ public class CustomerServiceInterface extends BaseInterface {
 	 *            消息内容
 	 * @throws IOException
 	 */
-	public void sendTextCustomerServiceMsg(String token, String touser, String content) throws IOException {
+	public void sendTextCustomerServiceMsg(final String token, String touser, String content) throws IOException {
 
 		TextCustomerServiceMsg textMsg = new TextCustomerServiceMsg();
 
@@ -64,7 +68,7 @@ public class CustomerServiceInterface extends BaseInterface {
 	 *            图片Id
 	 * @throws IOException
 	 */
-	public void sendImageCustomerServiceMsg(String token, String touser, String mediaId) throws IOException {
+	public void sendImageCustomerServiceMsg(final String token, String touser, String mediaId) throws IOException {
 
 		ImageCustomerServiceMsg imageMsg = new ImageCustomerServiceMsg();
 
@@ -76,7 +80,7 @@ public class CustomerServiceInterface extends BaseInterface {
 	}
 
 	/**
-	 * 发送语音的图片消息
+	 * 发送语音的客服消息
 	 * 
 	 * @param token
 	 *            微信唯一标识符
@@ -86,7 +90,7 @@ public class CustomerServiceInterface extends BaseInterface {
 	 *            语音Id
 	 * @throws IOException
 	 */
-	public void sendVoiceCustomerServiceMsg(String token, String touser, String mediaId) throws IOException {
+	public void sendVoiceCustomerServiceMsg(final String token, String touser, String mediaId) throws IOException {
 
 		VoiceCustomerServiceMsg voiceMsg = new VoiceCustomerServiceMsg();
 
@@ -94,6 +98,62 @@ public class CustomerServiceInterface extends BaseInterface {
 		voiceMsg.setVoice(new ImageAndVoice(mediaId));
 
 		sendCustomerServiceMsg(token, voiceMsg);
+	}
+
+	/**
+	 * 发送视频的客服消息
+	 * 
+	 * @param token
+	 *            微信唯一标识符
+	 * @param touser
+	 *            消息接受这OpendId
+	 * @param mediaId
+	 *            视频文件Id
+	 * @param thumbMediaId
+	 *            缩略图Id
+	 * @param title
+	 *            视频消息的标题
+	 * @param description
+	 *            视频消息的描述
+	 * @throws IOException
+	 */
+	public void sendVideoCustomerServiceMsg(final String token, String touser, String mediaId, String thumbMediaId, String title, String description) throws IOException {
+
+		VideoCustomerServiceMsg videoMsg = new VideoCustomerServiceMsg();
+
+		videoMsg.setTouser(touser);
+		videoMsg.setVideo(new Video(mediaId, thumbMediaId, title, description));
+
+		sendCustomerServiceMsg(token, videoMsg);
+	}
+
+	/**
+	 * 发送音乐的客服消息
+	 * 
+	 * @param token
+	 *            微信唯一标识符
+	 * @param touser
+	 *            消息接受这OpendId
+	 * @param title
+	 *            音乐文件标题
+	 * @param description
+	 *            音乐文件描述
+	 * @param musicurl
+	 *            音乐文件连接
+	 * @param hqmusicurl
+	 *            高清音乐文件连接
+	 * @param thumbMediaId
+	 *            缩略图
+	 * @throws IOException
+	 */
+	public void sendMusicCustomerServiceMsg(final String token, String touser, String title, String description, String musicurl, String hqmusicurl, String thumbMediaId) throws IOException {
+
+		MusicCustomerServiceMsg musicMsg = new MusicCustomerServiceMsg();
+
+		musicMsg.setTouser(touser);
+		musicMsg.setMusic(new Music(title, description, musicurl, hqmusicurl, thumbMediaId));
+
+		sendCustomerServiceMsg(token, musicMsg);
 	}
 
 	/**
@@ -105,7 +165,7 @@ public class CustomerServiceInterface extends BaseInterface {
 	 *            客服消息对象
 	 * @throws IOException
 	 */
-	private void sendCustomerServiceMsg(String token, BaseCustomerServiceMsg msg) throws IOException {
+	private void sendCustomerServiceMsg(final String token, BaseCustomerServiceMsg msg) throws IOException {
 
 		String url = Configuration.getProperty("customerServiceMsg").replace("ACCESS_TOKEN", token);
 
@@ -128,7 +188,6 @@ public class CustomerServiceInterface extends BaseInterface {
 				response = null;
 			}
 		}
-
 	}
 
 }

@@ -37,7 +37,7 @@ public class BasicInteface extends BaseInterface {
 	 * @throws IOException
 	 * @throws
 	 */
-	public WechatServiceIp getIp(String token) throws IOException {
+	public WechatServiceIp getIp(final String token) throws IOException {
 
 		WechatServiceIp ips = null;
 
@@ -78,7 +78,7 @@ public class BasicInteface extends BaseInterface {
 	 * @throws IOException
 	 * @throws
 	 */
-	public UploadResult upload(String token, File file, FileType type) throws IOException {
+	public UploadResult upload(final String token, File file, FileType type) throws IOException {
 
 		UploadResult uploadResult = null;
 

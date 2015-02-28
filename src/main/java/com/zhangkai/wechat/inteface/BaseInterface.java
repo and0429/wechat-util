@@ -19,7 +19,7 @@ public abstract class BaseInterface {
 	 * @param content
 	 *            日志内容
 	 */
-	public void loggerformat(String content) {
+	public void loggerformat(final String content) {
 		logger.info("================== " + content + " ==================");
 	}
 
