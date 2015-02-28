@@ -17,7 +17,7 @@ public class VideoPassivityMsg extends BasePassivityMsg {
 	/**
 	 * 消息类型
 	 */
-	private String msgType = "video";
+	private final String msgType = "video";
 
 	/**
 	 * 视频文件

@@ -29,4 +29,20 @@ public class CustomerServiceInterfaceTest {
 
 	}
 
+	@Test
+	public void testSendImageCustomerServiceMsg() throws IOException {
+
+		String mediaId = "onGIIjjLV6pgyEHYGfCWa0Oryp0eGF8hz75YiLoYx7oIBp83ypOLSz3sTHuWACeK";
+		csi.sendImageCustomerServiceMsg(token, touser, mediaId);
+
+	}
+
+	@Test
+	public void testSendVoiceCustomerServiceMsg() throws IOException {
+
+		String mediaId = "onGIIjjLV6pgyEHYGfCWa0Oryp0eGF8hz75YiLoYx7oIBp83ypOLSz3sTHuWACeK";
+		csi.sendVoiceCustomerServiceMsg(token, touser, mediaId);
+
+	}
+
 }

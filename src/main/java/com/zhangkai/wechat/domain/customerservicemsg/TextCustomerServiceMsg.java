@@ -6,14 +6,14 @@ import com.zhangkai.wechat.domain.customerservicemsg.subcustomerservicemsg.Text;
  * 文本客服消息
  * 
  * @author zhangkai
- *
+ * 
  */
 public class TextCustomerServiceMsg extends BaseCustomerServiceMsg {
 
 	/**
 	 * 类型。
 	 */
-	private String msgtype = "text";
+	private final String msgtype = "text";
 
 	/**
 	 * 文字消息对象

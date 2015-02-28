@@ -14,11 +14,10 @@ import com.zhangkai.wechat.domain.passivitymsg.TextPassivityMsg;
 import com.zhangkai.wechat.domain.passivitymsg.VideoPassivityMsg;
 import com.zhangkai.wechat.domain.passivitymsg.VoicePassivityMsg;
 import com.zhangkai.wechat.domain.passivitymsg.subpassivitymsg.Articles;
-import com.zhangkai.wechat.domain.passivitymsg.subpassivitymsg.Image;
+import com.zhangkai.wechat.domain.passivitymsg.subpassivitymsg.ImageAndVoice;
 import com.zhangkai.wechat.domain.passivitymsg.subpassivitymsg.Item;
 import com.zhangkai.wechat.domain.passivitymsg.subpassivitymsg.Music;
 import com.zhangkai.wechat.domain.passivitymsg.subpassivitymsg.Video;
-import com.zhangkai.wechat.domain.passivitymsg.subpassivitymsg.Voice;
 
 public class PassivityMsgInterfaceTest {
 
@@ -45,7 +44,7 @@ public class PassivityMsgInterfaceTest {
 
 		obj.setFromUserName("<fromUserName>");
 		obj.setToUserName("toUserName");
-		Image image = new Image();
+		ImageAndVoice image = new ImageAndVoice();
 
 		image.setMediaId("mediaId");
 
@@ -62,9 +61,7 @@ public class PassivityMsgInterfaceTest {
 
 		obj.setFromUserName("<fromUserName>");
 		obj.setToUserName("toUserName");
-		Voice voice = new Voice();
-
-		voice.setMediaId("mediaId");
+		ImageAndVoice voice = new ImageAndVoice("mediaId");
 
 		obj.setVoice(voice);
 

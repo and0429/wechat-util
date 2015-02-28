@@ -14,7 +14,10 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
 import com.zhangkai.wechat.domain.customerservicemsg.BaseCustomerServiceMsg;
+import com.zhangkai.wechat.domain.customerservicemsg.ImageCustomerServiceMsg;
 import com.zhangkai.wechat.domain.customerservicemsg.TextCustomerServiceMsg;
+import com.zhangkai.wechat.domain.customerservicemsg.VoiceCustomerServiceMsg;
+import com.zhangkai.wechat.domain.customerservicemsg.subcustomerservicemsg.ImageAndVoice;
 import com.zhangkai.wechat.domain.customerservicemsg.subcustomerservicemsg.Text;
 import com.zhangkai.wechat.util.Configuration;
 
@@ -22,7 +25,7 @@ import com.zhangkai.wechat.util.Configuration;
  * 客服接口
  * 
  * @author zhangkai
- *
+ * 
  */
 public class CustomerServiceInterface extends BaseInterface {
 
@@ -51,6 +54,49 @@ public class CustomerServiceInterface extends BaseInterface {
 	}
 
 	/**
+	 * 发送客服的图片消息
+	 * 
+	 * @param token
+	 *            微信唯一标识符
+	 * @param touser
+	 *            消息接受这OpendId
+	 * @param mediaId
+	 *            图片Id
+	 * @throws IOException
+	 */
+	public void sendImageCustomerServiceMsg(String token, String touser, String mediaId) throws IOException {
+
+		ImageCustomerServiceMsg imageMsg = new ImageCustomerServiceMsg();
+
+		imageMsg.setTouser(touser);
+		imageMsg.setImage(new ImageAndVoice(mediaId));
+
+		sendCustomerServiceMsg(token, imageMsg);
+
+	}
+
+	/**
+	 * 发送语音的图片消息
+	 * 
+	 * @param token
+	 *            微信唯一标识符
+	 * @param touser
+	 *            消息接受这OpendId
+	 * @param mediaid
+	 *            语音Id
+	 * @throws IOException
+	 */
+	public void sendVoiceCustomerServiceMsg(String token, String touser, String mediaId) throws IOException {
+
+		VoiceCustomerServiceMsg voiceMsg = new VoiceCustomerServiceMsg();
+
+		voiceMsg.setTouser(touser);
+		voiceMsg.setVoice(new ImageAndVoice(mediaId));
+
+		sendCustomerServiceMsg(token, voiceMsg);
+	}
+
+	/**
 	 * 发送客服消息基础方法
 	 * 
 	 * @param token
@@ -58,7 +104,6 @@ public class CustomerServiceInterface extends BaseInterface {
 	 * @param msg
 	 *            客服消息对象
 	 * @throws IOException
-	 * @throws
 	 */
 	private void sendCustomerServiceMsg(String token, BaseCustomerServiceMsg msg) throws IOException {
 

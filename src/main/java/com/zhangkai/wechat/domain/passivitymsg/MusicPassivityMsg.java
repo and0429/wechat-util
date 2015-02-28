@@ -17,7 +17,7 @@ public class MusicPassivityMsg extends BasePassivityMsg {
 	/**
 	 * 消息类型
 	 */
-	private String msgType = "music";
+	private final String msgType = "music";
 
 	private Music music;
 

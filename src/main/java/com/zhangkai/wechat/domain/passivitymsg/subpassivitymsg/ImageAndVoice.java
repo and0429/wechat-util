@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlElement;
  * @author zhangkai
  * 
  */
-public class Image {
+public class ImageAndVoice {
 
 	/**
 	 * 图片id,通过上传多媒体文件，得到的id。
@@ -21,14 +21,14 @@ public class Image {
 	 * @param mediaId
 	 *            图片id,通过上传多媒体文件，得到的id。
 	 */
-	public Image(String mediaId) {
+	public ImageAndVoice(String mediaId) {
 		this.mediaId = mediaId;
 	}
 
 	/**
 	 * 创建一个实例
 	 */
-	public Image() {
+	public ImageAndVoice() {
 		super();
 	}
 

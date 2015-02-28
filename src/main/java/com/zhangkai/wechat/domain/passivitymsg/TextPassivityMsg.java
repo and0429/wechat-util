@@ -15,7 +15,7 @@ public class TextPassivityMsg extends BasePassivityMsg {
 	/**
 	 * 消息类型
 	 */
-	private String msgType = "text";
+	private final String msgType = "text";
 
 	/**
 	 * 消息内容

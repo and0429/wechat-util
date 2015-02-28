@@ -3,7 +3,7 @@ package com.zhangkai.wechat.domain.passivitymsg;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.zhangkai.wechat.domain.passivitymsg.subpassivitymsg.Image;
+import com.zhangkai.wechat.domain.passivitymsg.subpassivitymsg.ImageAndVoice;
 
 /**
  * 回复图片消息
@@ -17,12 +17,12 @@ public class ImagePassivityMsg extends BasePassivityMsg {
 	/**
 	 * 消息类型
 	 */
-	private String msgType = "image";
+	private final String msgType = "image";
 
 	/**
 	 * 图片对象
 	 */
-	private Image image;
+	private ImageAndVoice image;
 
 	@XmlElement(name = "MsgType")
 	public String getMsgType() {
@@ -30,11 +30,11 @@ public class ImagePassivityMsg extends BasePassivityMsg {
 	}
 
 	@XmlElement(name = "Image")
-	public Image getImage() {
+	public ImageAndVoice getImage() {
 		return image;
 	}
 
-	public void setImage(Image image) {
+	public void setImage(ImageAndVoice image) {
 		this.image = image;
 	}
 

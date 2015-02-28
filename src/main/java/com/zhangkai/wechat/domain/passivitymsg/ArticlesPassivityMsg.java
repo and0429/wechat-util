@@ -17,7 +17,7 @@ public class ArticlesPassivityMsg extends BasePassivityMsg {
 	/**
 	 * 消息类型
 	 */
-	private String msgType = "news";
+	private final String msgType = "news";
 
 	/**
 	 * 图文消息个数，限制为10条以内
