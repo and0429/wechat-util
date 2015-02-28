@@ -147,8 +147,6 @@ public class PassivityMsgInterfaceTest {
 		item.add(item2);
 		item.add(item3);
 
-		articles.setItem(item);
-
 		obj.setArticles(articles);
 
 		String result = pm.passivityMsg2xml(obj);

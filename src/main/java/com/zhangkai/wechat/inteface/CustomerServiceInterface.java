@@ -1,6 +1,7 @@
 package com.zhangkai.wechat.inteface;
 
 import java.io.IOException;
+import java.util.List;
 
 import net.sf.json.JSONObject;
 
@@ -16,9 +17,12 @@ import org.apache.http.util.EntityUtils;
 import com.zhangkai.wechat.domain.customerservicemsg.BaseCustomerServiceMsg;
 import com.zhangkai.wechat.domain.customerservicemsg.ImageCustomerServiceMsg;
 import com.zhangkai.wechat.domain.customerservicemsg.MusicCustomerServiceMsg;
+import com.zhangkai.wechat.domain.customerservicemsg.NewsCustomerServiceMsg;
 import com.zhangkai.wechat.domain.customerservicemsg.TextCustomerServiceMsg;
 import com.zhangkai.wechat.domain.customerservicemsg.VideoCustomerServiceMsg;
 import com.zhangkai.wechat.domain.customerservicemsg.VoiceCustomerServiceMsg;
+import com.zhangkai.wechat.domain.customerservicemsg.subcustomerservicemsg.Article;
+import com.zhangkai.wechat.domain.customerservicemsg.subcustomerservicemsg.Articles;
 import com.zhangkai.wechat.domain.customerservicemsg.subcustomerservicemsg.ImageAndVoice;
 import com.zhangkai.wechat.domain.customerservicemsg.subcustomerservicemsg.Music;
 import com.zhangkai.wechat.domain.customerservicemsg.subcustomerservicemsg.Text;
@@ -157,6 +161,68 @@ public class CustomerServiceInterface extends BaseInterface {
 	}
 
 	/**
+	 * 发送图文客服消息 （非标准的，只有文字，没有图片和连接）
+	 * 
+	 * @param token
+	 *            微信唯一标识符
+	 * @param touser
+	 *            消息接受这OpendId
+	 * @param contents
+	 *            内容集合， 最多10条
+	 * @throws IOException
+	 */
+	public void sendNewsCustomerServiceMsg(final String token, String touser, List<String> contents) throws IOException {
+
+		NewsCustomerServiceMsg newsMsg = new NewsCustomerServiceMsg();
+
+		newsMsg.setTouser(touser);
+
+		Articles news = new Articles();
+		List<Article> articles = news.getArticles();
+
+		for (int i = 0; i < (contents.size() > 10 ? 10 : contents.size()); i++) {
+			articles.add(new Article(contents.get(i)));
+		}
+
+		newsMsg.setNews(news);
+
+		sendCustomerServiceMsg(token, newsMsg);
+
+	}
+
+	/**
+	 * 发送图文客服消息 （标准的图文消息）
+	 * 
+	 * @param token
+	 *            微信唯一标识符
+	 * @param touser
+	 *            消息接受这OpendId
+	 * @param articles
+	 *            图文消息集合
+	 * @param flag
+	 *            是否标准的图文消息
+	 * @throws IOException
+	 */
+	public void sendNewsCustomerServiceMsg(final String token, String touser, List<Article> articles, Boolean flag) throws IOException {
+
+		NewsCustomerServiceMsg newsMsg = new NewsCustomerServiceMsg();
+
+		newsMsg.setTouser(touser);
+
+		if (articles.size() > 10) {
+			articles = articles.subList(0, 10);
+		}
+
+		Articles news = new Articles();
+		news.getArticles().addAll(articles);
+
+		newsMsg.setNews(news);
+
+		sendCustomerServiceMsg(token, newsMsg);
+
+	}
+
+	/**
 	 * 发送客服消息基础方法
 	 * 
 	 * @param token
@@ -173,6 +239,9 @@ public class CustomerServiceInterface extends BaseInterface {
 		HttpPost httpPost = new HttpPost(url);
 
 		String msgJson = JSONObject.fromObject(msg).toString();
+
+		// console log
+		loggerformat(msgJson);
 
 		httpPost.setEntity(new StringEntity(msgJson, ContentType.APPLICATION_JSON));
 

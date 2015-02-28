@@ -154,8 +154,6 @@ public class ObjectFormatTest {
 		item.add(item2);
 		item.add(item3);
 
-		articles.setItem(item);
-
 		obj.setArticles(articles);
 
 		String result = ObjectFormat.newInstance().object2xml(obj, "utf-8");
