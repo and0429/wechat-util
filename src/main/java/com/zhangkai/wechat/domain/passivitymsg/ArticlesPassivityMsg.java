@@ -4,6 +4,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.zhangkai.wechat.domain.passivitymsg.subpassivitymsg.Articles;
+import com.zhangkai.wechat.enumuration.MessageType;
 
 /**
  * 回复图文消息
@@ -17,7 +18,7 @@ public class ArticlesPassivityMsg extends BasePassivityMsg {
 	/**
 	 * 消息类型
 	 */
-	private final String msgType = "news";
+	private final String msgType = MessageType.NEWS.value();
 
 	/**
 	 * 图文消息个数，限制为10条以内

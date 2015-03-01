@@ -1,6 +1,7 @@
 package com.zhangkai.wechat.domain.customerservicemsg;
 
 import com.zhangkai.wechat.domain.customerservicemsg.subcustomerservicemsg.Articles;
+import com.zhangkai.wechat.enumuration.MessageType;
 
 
 
@@ -14,7 +15,7 @@ public class NewsCustomerServiceMsg extends BaseCustomerServiceMsg {
 	/**
 	 * 消息类型
 	 */
-	private final String msgtype = "news";
+	private final String msgtype = MessageType.NEWS.value();
 
 	/**
 	 * 图文消息对象

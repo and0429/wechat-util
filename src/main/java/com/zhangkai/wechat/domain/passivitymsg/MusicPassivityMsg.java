@@ -4,6 +4,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.zhangkai.wechat.domain.passivitymsg.subpassivitymsg.Music;
+import com.zhangkai.wechat.enumuration.MessageType;
 
 /**
  * 回复音乐消息
@@ -17,7 +18,7 @@ public class MusicPassivityMsg extends BasePassivityMsg {
 	/**
 	 * 消息类型
 	 */
-	private final String msgType = "music";
+	private final String msgType = MessageType.MUSIC.value();
 
 	private Music music;
 

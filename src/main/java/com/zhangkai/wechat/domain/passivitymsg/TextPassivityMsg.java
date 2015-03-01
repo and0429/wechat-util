@@ -3,6 +3,8 @@ package com.zhangkai.wechat.domain.passivitymsg;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.zhangkai.wechat.enumuration.MessageType;
+
 /**
  * 回复文本消息对象
  * 
@@ -15,7 +17,7 @@ public class TextPassivityMsg extends BasePassivityMsg {
 	/**
 	 * 消息类型
 	 */
-	private final String msgType = "text";
+	private final String msgType = MessageType.Text.value();
 
 	/**
 	 * 消息内容

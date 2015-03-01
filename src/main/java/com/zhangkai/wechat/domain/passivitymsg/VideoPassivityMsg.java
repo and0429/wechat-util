@@ -4,6 +4,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.zhangkai.wechat.domain.passivitymsg.subpassivitymsg.Video;
+import com.zhangkai.wechat.enumuration.MessageType;
 
 /**
  * 回复视频消息
@@ -17,7 +18,7 @@ public class VideoPassivityMsg extends BasePassivityMsg {
 	/**
 	 * 消息类型
 	 */
-	private final String msgType = "video";
+	private final String msgType = MessageType.VIDEO.value();
 
 	/**
 	 * 视频文件

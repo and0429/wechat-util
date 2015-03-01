@@ -4,6 +4,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.zhangkai.wechat.domain.passivitymsg.subpassivitymsg.ImageAndVoice;
+import com.zhangkai.wechat.enumuration.MessageType;
 
 /**
  * 回复语音消息
@@ -17,7 +18,7 @@ public class VoicePassivityMsg extends BasePassivityMsg {
 	/**
 	 * 消息类型
 	 */
-	private final String msgType = "voice";
+	private final String msgType = MessageType.VOICE.value();
 
 	/**
 	 * 语音

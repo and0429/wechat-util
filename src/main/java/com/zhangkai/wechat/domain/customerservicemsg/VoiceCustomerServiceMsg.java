@@ -1,6 +1,7 @@
 package com.zhangkai.wechat.domain.customerservicemsg;
 
 import com.zhangkai.wechat.domain.customerservicemsg.subcustomerservicemsg.ImageAndVoice;
+import com.zhangkai.wechat.enumuration.MessageType;
 
 /**
  * 
@@ -12,7 +13,7 @@ public class VoiceCustomerServiceMsg extends BaseCustomerServiceMsg {
 	/**
 	 * 消息类型为语音
 	 */
-	private final String msgtype = "voice";
+	private final String msgtype = MessageType.VOICE.value();
 
 	/**
 	 * 语音对象
