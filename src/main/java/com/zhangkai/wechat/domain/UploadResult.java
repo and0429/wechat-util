@@ -12,7 +12,8 @@ import java.util.Date;
 public class UploadResult {
 
 	/**
-	 * 媒体文件类型，分别有图片（image）、语音（voice）、视频（video）和缩略图（thumb，主要用于视频与音乐格式的缩略图）
+	 * 媒体文件类型，分别有图片（image）、语音（voice）、<br/>
+	 * 视频（video）和缩略图（thumb，主要用于视频与音乐格式的缩略图）
 	 */
 	private String type;
 
